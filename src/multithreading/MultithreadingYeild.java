@@ -1,4 +1,9 @@
 package multithreading;
 
-public class MultithreadingYeild {
+public class MultithreadingYeild extends Thread {
+
+    @Override
+    public void run(){
+
+    }
 }
