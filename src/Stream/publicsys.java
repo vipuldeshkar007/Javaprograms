@@ -14,24 +14,24 @@ public class publicsys {
                 new Employee(4, "Sarah", "Finance", 30000)
         );
         // 1. Find Employees Earning More Than 50,000
-        List<Employee> salaryFilter = employees.stream().
-                filter(e -> e.getSalary() > 50000).toList();
-        System.out.println("Employee list with more than 50000 salary"+ salaryFilter);
+        List<Employee> salaryFilter = employees.stream().filter(e -> e.getSalary() >50000).toList();
+        System.out.println("Employee list with more than 50000 salary -- "+ salaryFilter);
         // 2. Group Employees by Department
-        Map<String, List<Employee>> groupByDept = employees.stream()
-                .collect(Collectors.groupingBy(Employee::getDepartment));
-        System.out.println("Employee list with grouped by department"+ groupByDept);
+        Map<String, List<Employee>> groupByDept = employees.stream().collect(Collectors.groupingBy(e -> e.getDepartment()));
+        System.out.println("Employee list with grouped by department -- "+ groupByDept);
 
         // 3. Find the Employee with the 3rd Highest Salary
         Employee empDetails = (Employee) employees.stream()
                     .sorted(Comparator.comparingDouble(Employee::getSalary))
                     .skip(2)
                     .findFirst().orElse(null);
+        // 4. Find the 3rd Highest Salary
+        double empNthHightSalary = employees.stream().map(Employee::getSalary)
+                .sorted().skip(2).findFirst().orElse(0.0);
+        System.out.println("empNthHightSalary "+ empNthHightSalary);
         System.out.println("empDetails "+ empDetails);
         // 4. Sort Employees by Name
-        List<Employee> sortByName =  employees.stream().
-                sorted(Comparator.comparing(Employee::getName)).
-                toList();
+        List<Employee> sortByName = employees.stream().sorted(Comparator.comparing(Employee::getName)).toList();
 
         System.out.println("Sorted by Name -- "+ sortByName);
 

@@ -9,7 +9,5 @@ public class ConcetListToString {
         String concatString = strList.stream().map(String::toUpperCase).
                 reduce((a, b) -> a +" "+b).get();
         System.out.println(concatString);
-
-
     }
 }

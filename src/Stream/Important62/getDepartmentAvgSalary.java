@@ -15,8 +15,7 @@ public class getDepartmentAvgSalary {
                 new Employee(2, "Jane", "Finance", 45000),
                 new Employee(3, "Mike", "HR", 75000),
                 new Employee(4, "Sarah", "Finance", 30000),
-               new Employee(4, "Jack", "HR", 20000)
-
+                new Employee(4, "Jack", "HR", 20000)
         );
 
         Map<String, Double> avgSalaryDept = employees.stream().collect(
